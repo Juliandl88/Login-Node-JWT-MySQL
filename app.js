@@ -25,7 +25,7 @@ dotenv.config({ path: './env/.env' });
 
 //Para poder trabajar con las cookie
 
-//app.use(cookieParser);
+app.use(cookieParser());
 
 //Apuntamos la ruta raiz
 
@@ -36,6 +36,15 @@ dotenv.config({ path: './env/.env' });
 //Llamar al router
 
 app.use("/", require("./routes/router"));
+
+//Para eliminar el cache y que no quede información después del logout
+
+app.use(function(req, res, next){
+    if(!req.user){
+    res.header("Cache-Control", "public, no-cache, no-store, must-revalidate");
+    next();
+    }
+})
 
 //Levantamos el servidor en el puerto 3000
 

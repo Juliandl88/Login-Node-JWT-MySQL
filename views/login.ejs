@@ -38,10 +38,26 @@
             </button>
         </form>
         <br />
-        <a type="button" class="w-100 btn btn-lg btn-bd-primary">Registrarse</a>
+        <a href="/register" type="button" class="w-100 btn btn-lg btn-bd-primary">Registrarse</a>
     </main>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>  <!-- SweetAlert2 -->
+
+    <% if(alert) { %>
+        <script>
+            Swal.fire({
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: '<%= timer %>'
+            }).then(()=>{
+                window.location = "/<%= ruta %> "
+            })
+        </script> 
+        <% } %>
+
 </body>
 
 </html>
