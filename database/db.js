@@ -12,7 +12,7 @@ conexion.connect((error) => {
         console.log("El error de conexión es: " + error);
         return
     } else {
-        console.log("Conexion correcta");
+        console.log("Conexion establecida");
     }
 })
 
